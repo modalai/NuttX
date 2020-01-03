@@ -886,7 +886,7 @@ static void stm32_configwaitints(struct stm32_dev_s *priv, uint32_t waitmask,
     {
       /* Do not use this in STM32_SDMMC_MASK register */
 
-      waitmask &= !SDIOWAIT_WRCOMPLETE;
+      waitmask &= ~SDIOWAIT_WRCOMPLETE;
 
       pinset = priv->d0_gpio & (GPIO_PORT_MASK | GPIO_PIN_MASK);
       pinset |= (GPIO_INPUT | GPIO_FLOAT | GPIO_EXTI);
